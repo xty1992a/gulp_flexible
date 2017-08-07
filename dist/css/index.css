@@ -1,0 +1,33 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  font-size: 0.8rem;
+}
+
+body ul {
+  color: #fff;
+  padding: 0.8rem;
+}
+
+body ul li {
+  line-height: 0.8rem;
+  text-align: center;
+  box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.5);
+  background-color: yellowgreen;
+  margin-bottom: 0.533333rem;
+}
+
+[data-dpr="1"] body ul li {
+  font-size: 15px;
+}
+
+[data-dpr="2"] body ul li {
+  font-size: 30px;
+}
+
+[data-dpr="3"] body ul li {
+  font-size: 45px;
+}

@@ -1,17 +1,40 @@
-//导入工具包 require('node_modules里对应模块')
-var gulp = require('gulp'), //本地安装gulp所用到的地方
-    less = require('gulp-less');
+var gulp = require('gulp');
+var postcss = require('gulp-postcss');
+var px2rem = require('postcss-px2rem');
+var connect = require('gulp-connect');
 
-//定义一个testLess任务（自定义任务名称）
-gulp.task('testLess', function () {
-  gulp.src('src/less/index.less') //该任务针对的文件
-      .pipe(less()) //该任务调用的模块
-      .pipe(gulp.dest('src/css')); //将会在src/css下生成index.css
+gulp.task('css', function () {
+  var processors = [px2rem({remUnit: 75})];
+  return gulp.src('./src/css/*.css')
+      .pipe(postcss(processors))
+      .pipe(gulp.dest('./dist/css'))
+      .pipe(connect.reload());
 });
+
 gulp.task('html', function () {
-  gulp.src('./src/page/*.html')
-      .pipe(gulp.dest('./dist/page'))
-})
+  gulp.src('./dist/pages/*.html')
+      .pipe(connect.reload());
+});
 
-gulp.task('default', ['testLess', 'html']); //定义默认任务
+gulp.task('js', function () {
+  gulp.src('./src/js/*.js')
+      .pipe(gulp.dest('./dist/js'))
+      .pipe(connect.reload());
+});
 
+gulp.task('connect', function () {
+  connect.server({
+    root: 'dist',
+    port: '8000',
+    livereload: true
+  })
+});
+
+
+gulp.task('watch', function () {
+  gulp.watch(['./dist/pages/*.html'], ['html'])
+  gulp.watch(['./src/css/*.css'], ['css'])
+  gulp.watch(['./src/js/*.js'], ['js'])
+});
+
+gulp.task('default', ['css', 'html', 'js', 'connect', 'watch']);
