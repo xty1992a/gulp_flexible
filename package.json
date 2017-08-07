@@ -1,0 +1,20 @@
+{
+  "name": "gulp_fiexible",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "xty1992a@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-postcss": "^7.0.0",
+    "postcss-px2rem": "^0.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xty1992a/gulp_flexible.git"
+  }
+}
