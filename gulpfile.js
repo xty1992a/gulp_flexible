@@ -2,6 +2,18 @@ var gulp = require('gulp');
 var postcss = require('gulp-postcss');
 var px2rem = require('postcss-px2rem');
 var connect = require('gulp-connect');
+var concat = require('gulp-concat')
+var uglify = require('gulp-uglify')
+
+var path = {
+  input: {
+    js: './src/js/',
+    commonjs: './src/common/js/'
+  },
+  output: {
+    js: './dist/js'
+  }
+}
 
 gulp.task('css', function () {
   var processors = [px2rem({remUnit: 75})];
@@ -12,15 +24,28 @@ gulp.task('css', function () {
 });
 
 gulp.task('html', function () {
-  gulp.src('./dist/pages/*.html')
+  return gulp.src('./dist/pages/*.html')
       .pipe(connect.reload());
 });
 
 gulp.task('js', function () {
-  gulp.src('./src/js/*.js')
-      .pipe(gulp.dest('./dist/js'))
+  // return gulp.src('./src/js/*.js')
+  return gulp.src([
+    // path.input.commonjs + 'zepto.js',
+    path.input.commonjs + 'extend.js',
+    path.input.js + '*.js'
+  ])
+      .pipe(concat('index.js'))
+      // .pipe(uglify())
+      .pipe(gulp.dest(path.output.js))
       .pipe(connect.reload());
 });
+
+gulp.task('copy', function () {
+  return gulp.src('./src/common/js/zepto.js')
+      .pipe(uglify())
+      .pipe(gulp.dest('./dist/common/js'))
+})
 
 gulp.task('connect', function () {
   connect.server({

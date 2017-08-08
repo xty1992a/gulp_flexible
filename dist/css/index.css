@@ -7,27 +7,45 @@ body {
   font-size: 0.8rem;
 }
 
-body ul {
+body .list {
   color: #fff;
   padding: 0.8rem;
 }
 
-body ul li {
+body .list li {
   line-height: 0.8rem;
+  height: 0.8rem;
   text-align: center;
   box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.5);
   background-color: yellowgreen;
   margin-bottom: 0.533333rem;
 }
 
-[data-dpr="1"] body ul li {
+[data-dpr="1"] body .list li {
   font-size: 15px;
 }
 
-[data-dpr="2"] body ul li {
+[data-dpr="2"] body .list li {
   font-size: 30px;
 }
 
-[data-dpr="3"] body ul li {
+[data-dpr="3"] body .list li {
   font-size: 45px;
+}
+
+body .menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+body .menu li {
+  box-shadow: 0 0 0.133333rem rgba(0, 0, 0, 0.2);
+  background-color: darkgray;
+  border-radius: 0.053333rem;
+  text-align: center;
+  margin: 0.133333rem 0 0.066667rem;
+  line-height: 2;
+  flex: 0 0 22%;
+  color: #fff;
 }

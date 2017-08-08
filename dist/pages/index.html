@@ -7,10 +7,12 @@
   <meta content="telephone=no,email=no" name="format-detection">
   <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
   <link rel="stylesheet" href="../css/index.css">
+  <script type="text/javascript" src="../common/js/zepto.js"></script>
+  <script type="text/javascript" src="../js/index.js"></script>
   <title>Title</title>
 </head>
 <body>
-<ul>
+<ul class="menu">
   <li>item01</li>
   <li>item02</li>
   <li>item03</li>
@@ -20,5 +22,20 @@
   <li>item07</li>
   <li>item08</li>
 </ul>
+<ul class="list">
+  <li>item01</li>
+  <li>item02</li>
+  <li>item03</li>
+  <li>item04</li>
+  <li>item05</li>
+  <li>item06</li>
+  <li>item07</li>
+  <li>item08</li>
+</ul>
+<script type="text/javascript">
+  $(document).on('tap', function () {
+    alert('fuck')
+  })
+</script>
 </body>
 </html>
