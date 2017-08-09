@@ -34,3 +34,11 @@ body .menu li {
   flex: 0 0 22%;
   color: #fff;
 }
+body .svg {
+  height: 100px;
+}
+body .svg svg {
+  height: 32px;
+  width: 32px;
+  fill: #369;
+}
